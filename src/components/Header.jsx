@@ -53,6 +53,16 @@ const Header = () => {
             เกี่ยวกับ
           </a>
           <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("contact");
+            }}
+            className="nav-link text-base sm:text-lg md:text-xl text-gray-200 hover:text-yellow-200 transition-colors duration-300"
+          >
+            เครื่องหมายการค้า
+          </a>
+          <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
@@ -60,7 +70,7 @@ const Header = () => {
             }}
             className="nav-link text-base sm:text-lg md:text-xl text-gray-200 hover:text-yellow-200 transition-colors duration-300"
           >
-            ติดต่อ
+            ติดต่อเรา
           </a>
         </nav>
       </div>

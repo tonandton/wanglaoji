@@ -28,6 +28,7 @@ const ImageSlider = ({ images, autoSlide = true, interval = 5000 }) => {
     scrollToIndex(newIndex);
   };
 
+  // Auto slide
   useEffect(() => {
     if (!autoSlide) return;
     const timer = setInterval(() => {
@@ -36,26 +37,33 @@ const ImageSlider = ({ images, autoSlide = true, interval = 5000 }) => {
     return () => clearInterval(timer);
   }, [currentIndex, autoSlide]);
 
+  // ESC close lightbox
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") setLightboxOpen(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
+
   return (
     <>
-      <div className="relative w-full overflow-hidden rounded-xl shadow-xl max-w-full">
+      <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-gray-100 bg-white bg-opacity-60 backdrop-blur-lg">
+        {/* Slider Container */}
         <div
           ref={containerRef}
           className="flex w-full h-full overflow-hidden scroll-smooth scrollbar-hide"
-          style={{
-            scrollSnapType: "x mandatory",
-            WebkitOverflowScrolling: "touch",
-          }}
+          style={{ scrollSnapType: "x mandatory" }}
         >
           {images.map((src, i) => (
             <div
               key={i}
-              className="w-full flex-shrink-0 scroll-snap-align-start bg-black/30 flex items-center justify-center"
+              className="w-full flex-shrink-0 scroll-snap-align-start bg-black/5 flex items-center justify-center transition-opacity duration-500"
             >
               <img
                 src={src}
                 alt={`slide-${i}`}
-                className="w-full max-h-[350px] md:max-h-[450px] object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
+                className="w-full max-h-[400px] md:max-h-[500px] object-cover cursor-zoom-in transition-transform duration-500 hover:scale-105"
                 onClick={() => {
                   setLightboxImage(src);
                   setLightboxOpen(true);
@@ -65,22 +73,24 @@ const ImageSlider = ({ images, autoSlide = true, interval = 5000 }) => {
           ))}
         </div>
 
-        {/* ปุ่มเลื่อน */}
+        {/* Navigation Buttons */}
         <button
           onClick={scrollLeft}
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full z-10 hover:bg-red-700"
+          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 hover:bg-white text-red-600 hover:text-red-800 border border-gray-300 backdrop-blur-md p-2 md:p-3 rounded-full shadow-lg transition"
+          aria-label="Previous"
         >
-          ◀
+          ❮
         </button>
         <button
           onClick={scrollRight}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-red-600 text-white p-2 rounded-full z-10 hover:bg-red-700"
+          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 hover:bg-white text-red-600 hover:text-red-800 border border-gray-300 backdrop-blur-md p-2 md:p-3 rounded-full shadow-lg transition"
+          aria-label="Next"
         >
-          ▶
+          ❯
         </button>
 
-        {/* Dots */}
-        <div className="absolute bottom-3 w-full flex justify-center gap-2">
+        {/* Dot Indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
           {images.map((_, i) => (
             <div
               key={i}
@@ -88,9 +98,11 @@ const ImageSlider = ({ images, autoSlide = true, interval = 5000 }) => {
                 setCurrentIndex(i);
                 scrollToIndex(i);
               }}
-              className={`w-3 h-3 rounded-full ${
-                i === currentIndex ? "bg-red-600" : "bg-gray-300"
-              } cursor-pointer`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
+                i === currentIndex
+                  ? "bg-red-600 scale-110 shadow-md"
+                  : "bg-gray-300"
+              }`}
             />
           ))}
         </div>
@@ -99,13 +111,13 @@ const ImageSlider = ({ images, autoSlide = true, interval = 5000 }) => {
       {/* Lightbox Modal */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 cursor-zoom-out"
           onClick={() => setLightboxOpen(false)}
         >
           <img
             src={lightboxImage}
             alt="zoomed"
-            className="max-w-full max-h-[90vh] rounded-xl shadow-lg"
+            className="max-w-[95vw] max-h-[90vh] rounded-xl shadow-2xl transition-opacity duration-500"
           />
         </div>
       )}

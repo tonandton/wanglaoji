@@ -1,17 +1,31 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const AboutPage = () => {
+  useEffect(() => {
+    AOS.init({ once: true, duration: 800 });
+  }, []);
+
   return (
     <section
       id="about"
-      className="py-20 bg-gradient-to-b from-white via-white/90 to-gray-50"
+      className="relative py-20 bg-gradient-to-b from-white via-white/90 to-gray-50 bg-fixed bg-center bg-cover"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-red-600 mb-12">
+        <h2
+          className="text-3xl md:text-4xl font-bold text-center text-red-600 mb-12"
+          data-aos="fade-up"
+        >
           เกี่ยวกับเรา
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start text-gray-800">
           {/* คอลัมน์ซ้าย */}
-          <div className="space-y-6 text-base md:text-lg leading-loose bg-white/80 rounded-xl p-6 shadow-md backdrop-blur-sm">
+          <div
+            className="space-y-6 text-base md:text-lg leading-loose p-6  backdrop-blur-sm"
+            data-aos="fade-right"
+          >
             <p>
               สืบเนื่องจากแบรนด์ <strong>"หวังเหล่าจี๋"</strong> ในปี 1828
               หวังเหล่าจี๋ ถูกคิดค้นโดย <strong>"หวาง เจ๋อปัง"</strong>{" "}
@@ -41,7 +55,10 @@ const AboutPage = () => {
               <strong>"กว่างเย้า"</strong>
             </p>
           </div>
-          <div className="space-y-6 text-base md:text-lg leading-loose bg-white/80 rounded-xl p-6 shadow-md backdrop-blur-sm">
+          <div
+            className="space-y-6 text-base md:text-lg leading-loose  p-6  backdrop-blur-sm"
+            data-aos="fade-left"
+          >
             <p>
               และ <strong>หงเต้า (JDB Group)</strong> เริ่มมีปัญหา เนื่องจาก{" "}
               <strong>"กว่างเย้า"</strong>
