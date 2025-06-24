@@ -1,34 +1,74 @@
-import React from "react";
-import TurnTable from "./TurnTable";
-
 const AboutPage = () => {
-  const imageModules = import.meta.glob("/src/assets/images/360_images/*.jpg", {
-    eager: true,
-  });
-  const images = Object.values(imageModules).map((module) => {
-    return typeof module === "object" && module.default
-      ? module.default
-      : module;
-  });
-
   return (
-    <section id="about" className="py-20 bg-white/80 backdrop-blur-sm">
-      <div className="container mx-auto p-8">
-        <h2 className="section-title text-4xl mb-10 text-center">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-b from-white via-white/90 to-gray-50"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-red-600 mb-12">
           เกี่ยวกับเรา
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="p-6 space-y-4">
-            <p className="text-lg text-gray-700">
-              หวังเหล่าจี๋เป็นเครื่องดื่มสมุนไพรยอดนิยมจากจีนที่มีประวัติยาวนาน
-              ช่วยคลายร้อน บำรุงสุขภาพ และได้รับการรับรองจาก FDA
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start text-gray-800">
+          {/* คอลัมน์ซ้าย */}
+          <div className="space-y-6 text-base md:text-lg leading-loose bg-white/80 rounded-xl p-6 shadow-md backdrop-blur-sm">
+            <p>
+              สืบเนื่องจากแบรนด์ <strong>"หวังเหล่าจี๋"</strong> ในปี 1828
+              หวังเหล่าจี๋ ถูกคิดค้นโดย <strong>"หวาง เจ๋อปัง"</strong>{" "}
+              ซึ่งเป็นแพทย์สมุนไพรในมณฑลกวางตุ้ง
+              โดยเริ่มแรกเป็นสูตรชาสมุนไพรที่ใช้รักษาอาการร้อนใน
+              และถูกจำหน่ายในร้านขายยาเป็นหลัก
             </p>
-            <p className="text-lg text-gray-700">
-              ส่วนผสมจากสมุนไพรธรรมชาติ เช่น โกฐจุฬาลัมพา และเก๊กฮวย
-              ช่วยให้ร่างกายสดชื่นและมีพลัง
+            <p>
+              ในปี 1949 รัฐบาลจีนเข้ามาควบคุมธุรกิจเอกชน ทำให้ทรัพย์สินของตระกูล
+              <strong>"หวาง เจ๋อปัง"</strong> ถูกโอนให้รัฐ ภายใต้รัฐวิสาหกิจจีน
+              ชื่อว่า <strong>"กว่างเย้า"</strong>{" "}
+              ที่ทำธุรกิจเกี่ยวกับยาและสินค้าเพื่อสุขภาพ
+            </p>
+            <p>
+              ในปี 1997 <strong>หงเต้า (JDB Group)</strong>{" "}
+              ซึ่งเป็นบริษัทที่เชี่ยวชาญด้านอาหารและเครื่องดื่ม
+              ได้เข้ามาทำสัญญากับรัฐวิสาหกิจจีน <strong>"กว่างเย้า"</strong>
+              เพื่อขยายการตลาดของแบรนด์ <strong>"หวังเหล่าจี๋"</strong>{" "}
+              จำหน่ายในประเทศจีน และได้ทำการตลาดในประเทศไทยและทั่วโลก
+              โดยจดสิทธิบัตรไว้ภายใต้ชื่อแบรนด์ <strong>"หวังเหล่าจี๋"</strong>
+            </p>
+            <p>
+              ใบปี 2008-2010 <strong>หงเต้า (JDB Group)</strong>{" "}
+              สามารถสร้างมูลค่ากาตลาดได้ถึง 500,000 ล้านบาน และทำให้
+              "หวังเหล่าจี๋" กลายมาเป็นแบรนด์เครื่องดื่มชั้นนำของประเทศจีน
+              แม้แบรนด์จะเติบโตอย่างรวดเร็ว แต่ความสัมพันธ์ระหว่าง{" "}
+              <strong>"กว่างเย้า"</strong>
             </p>
           </div>
-          <div className="p-6">{/* <TurnTable images={images} /> */}</div>
+          <div className="space-y-6 text-base md:text-lg leading-loose bg-white/80 rounded-xl p-6 shadow-md backdrop-blur-sm">
+            <p>
+              และ <strong>หงเต้า (JDB Group)</strong> เริ่มมีปัญหา เนื่องจาก{" "}
+              <strong>"กว่างเย้า"</strong>
+              พบความผิดปกติของยอดขขายไม่สมเหตุสมผล จึงได้ยึดแบรนด์
+              "หวังเหล่าจี๋" คืนและได้ยกเลิกสัญญาที่ทำกับ{" "}
+              <strong>หงเต้า (JDB Group)</strong>
+              ทั้งหมด ทำให้เกิดข้อพิพาททางกฏหมายที่ส่งผลกระทบต่อแบรนด์ตั้งนั้นมา
+            </p>
+            <p>
+              ในปี 2012 <strong>หงเต้า (JBD Group)</strong>{" "}
+              ถูกสั่งห้ามไม่ให้ใช้แบรนด์ <strong>"หวังเหล่าจี๋"</strong>{" "}
+              ทำการตลาดอีก เพื่อรอความชัดเจนในเรื่องของเครื่องหมายการค้า
+              จึงได้ออกแบรนด์ใหม่ชื่ออว่า <strong>'เจียตัวเป่า'</strong> ภายใต้{" "}
+              <strong>JDB Group</strong>
+              ทำการตลาดควบคู่กัน ซึ่งทั้งรูปลักษณ์ภายนอกและรสชาติเหมือนกับ
+              <strong>'หวังเหล่าจี๋'</strong>
+            </p>
+            <p>
+              การที่มีข้อพิพาทฟ้องร้องเกี่ยวกับสิทธิ์ในการใช้ชื่อและสูตรของหวังเหล่าจี๋โดย
+              กว่างเย้า รัฐวิสาหกิจจีน
+              อ้างว่าตนเป็นเจ้าของสิทธิ์ในการผลิตและจัดจจำหน่ายในประเทศจีน
+              จึงสั่งห้ามไม่ให้ <strong>หงเต้า (JDB Group)</strong>{" "}
+              ทำการผลิตเครือ่งดิ่มสมุนไพรหวังเหล่าจี๋ในประเทศจีน ทำให้ หงเต้า{" "}
+              <strong>(JDB Group)</strong> ย้ายฐานการผลิตไปยังประเทศมาเลเซีย
+              และในอนาคตสามารถผลิตในประเทศไทยได้
+            </p>
+          </div>
         </div>
       </div>
     </section>
