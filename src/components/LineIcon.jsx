@@ -2,7 +2,7 @@ import React from "react";
 
 const LineIcon = () => (
   <a
-    href="https://line.me/ti/p/YourLineID"
+    href="https://lin.ee/MkKu45K"
     target="_blank"
     rel="noopener noreferrer"
     className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110"
