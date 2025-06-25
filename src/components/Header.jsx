@@ -24,22 +24,20 @@ const Header = () => {
   };
 
   return (
-    <header
-      ref={headerRef}
-      className="bg-gradient-to-r from-red-800 to-red-600 text-white sticky top-0 z-50 shadow-md font-thai"
-    >
-      <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-lg border-b border-white/10 transition-all duration-300">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+        {/* โลโก้ / ชื่อแบรนด์ */}
         <h1
-          onClick={scrollToTop}
-          className="text-2xl sm:text-3xl font-bold text-yellow-300 cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="text-xl sm:text-2xl md:text-3xl font-bold text-red-700 hover:text-yellow-500 cursor-pointer tracking-wide transition-colors duration-300"
         >
           หวังเหล่าจี๋
         </h1>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6 font-medium text-gray-800">
           {[
-            { label: "หน้าแรก", id: "home", action: scrollToTop },
+            { label: "หน้าแรก", id: "home" },
             { label: "เกี่ยวกับ", id: "about" },
             { label: "เครื่องหมายการค้า", id: "trademark" },
             { label: "ติดต่อเรา", id: "contact" },
@@ -49,9 +47,10 @@ const Header = () => {
               href={`#${item.id}`}
               onClick={(e) => {
                 e.preventDefault();
-                item.action ? item.action() : scrollToSection(item.id);
+                const el = document.getElementById(item.id);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
-              className="text-base md:text-lg text-gray-200 hover:text-yellow-200 transition-colors duration-300"
+              className="hover:text-red-600 text-gray-700 transition-colors duration-300"
             >
               {item.label}
             </a>
@@ -59,21 +58,21 @@ const Header = () => {
         </nav>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className="md:hidden text-red-700 text-2xl">
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-yellow-300 text-2xl focus:outline-none"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="focus:outline-none"
           >
             {isMobileMenuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden px-4 pb-4 bg-red-700 shadow-md space-y-3">
+        <div className="md:hidden bg-white/90 backdrop-blur-sm shadow-inner px-6 pb-4 pt-2">
           {[
-            { label: "หน้าแรก", id: "home", action: scrollToTop },
+            { label: "หน้าแรก", id: "home" },
             { label: "เกี่ยวกับ", id: "about" },
             { label: "เครื่องหมายการค้า", id: "trademark" },
             { label: "ติดต่อเรา", id: "contact" },
@@ -83,9 +82,11 @@ const Header = () => {
               href={`#${item.id}`}
               onClick={(e) => {
                 e.preventDefault();
-                item.action ? item.action() : scrollToSection(item.id);
+                const el = document.getElementById(item.id);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+                setIsMobileMenuOpen(false);
               }}
-              className="block text-base text-gray-100 hover:text-yellow-200"
+              className="block text-base py-2 text-gray-800 hover:text-red-600 transition-colors duration-300"
             >
               {item.label}
             </a>

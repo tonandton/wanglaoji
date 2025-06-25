@@ -1,9 +1,19 @@
 // ExtraSlideSection.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import ImageSlider from "./ImageSlider";
 import { FaLeaf, FaGlassCheers, FaHeartbeat } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ExtraSlideSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // ความเร็ว animation (ms)
+      once: true, // ให้เล่นแค่ครั้งแรกที่ scroll มาถึง
+      offset: 100, // ระยะก่อนถึง element
+    });
+  }, []);
+
   const imageModules = import.meta.glob(
     "/src/assets/images/slider/Present_*.jpg",
     {
@@ -21,12 +31,18 @@ const ExtraSlideSection = () => {
       className="relative py-32 bg-fixed bg-[url('/src/assets/images/bg-parallax.jpg')] bg-cover bg-center"
     >
       <div className="container mx-auto px-4 md:px-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-red-600 text-center mb-12">
+        <h2
+          className="text-4xl md:text-5xl font-bold text-red-600 text-center mb-12"
+          data-aos="fade-up"
+        >
           ผลิตภัณฑ์และรสชาติ
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-gray-800 text-lg leading-relaxed px-2">
+          <div
+            className="space-y-6 text-gray-800 text-lg leading-relaxed px-2"
+            data-aos="fade-right"
+          >
             <p>
               <strong className="text-red-600 text-xl">หวังเหล่าจี๋</strong> —
               เครื่องดื่มสมุนไพรระดับตำนาน ที่ถ่ายทอดภูมิปัญญาจีนโบราณ

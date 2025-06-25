@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ImageSlider = ({ images, autoSlide = true, interval = 5000 }) => {
   const containerRef = useRef(null);
@@ -46,9 +48,20 @@ const ImageSlider = ({ images, autoSlide = true, interval = 5000 }) => {
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // ความเร็ว animation (ms)
+      once: true, // ให้เล่นแค่ครั้งแรกที่ scroll มาถึง
+      offset: 100, // ระยะก่อนถึง element
+    });
+  }, []);
+
   return (
     <>
-      <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-gray-100 bg-white bg-opacity-60 backdrop-blur-lg">
+      <div
+        className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-gray-100 bg-white bg-opacity-60 backdrop-blur-lg"
+        data-aos="fade-left"
+      >
         {/* Slider Container */}
         <div
           ref={containerRef}
