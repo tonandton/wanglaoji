@@ -1,5 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiDownload, FiFileText } from "react-icons/fi";
+
+const isMobile = () => {
+  if (typeof navigator === "undefined") return false;
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+};
 
 // สมมุติ PDF ถูกวางไว้ที่ public หรือ import ผ่าน glob
 const pdfFiles = [
@@ -14,6 +19,10 @@ const pdfFiles = [
   {
     title: "ใบจดทะเบียนเครื่องหมาย (Thailand)",
     file: "/docs/03-ใบมอบอำนาจให้หจก-บริบูรณ์เทรดดิ้ง.pdf",
+  },
+  {
+    title: "สัญญาน้ำหวังเหล่าจี๋-BT-boriboon",
+    file: "/docs/04-สัญญาน้ำหวังเหล่าจี๋-BT-boriboon.pdf",
   },
 ];
 
@@ -77,13 +86,30 @@ const TrademarkPage = () => {
           <h3 className="text-xl font-semibold mb-4 text-gray-800">
             📄 {selected.title}
           </h3>
-          <div className="w-full h-[900px] border rounded-lg overflow-hidden">
-            <iframe
-              src={selected.file}
-              title={selected.title}
-              className="w-full h-full"
-            />
-          </div>
+
+          {isMobile() ? (
+            <div className="text-center">
+              <p className="text-gray-600 mb-2">
+                📱 อุปกรณ์ของคุณไม่รองรับการแสดง PDF ในหน้านี้
+              </p>
+              <a
+                href={selected.file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-red-600 text-white px-5 py-2 rounded-full hover:bg-red-700 transition"
+              >
+                เปิดเอกสาร PDF
+              </a>
+            </div>
+          ) : (
+            <div className="w-full h-[900px] border rounded-lg overflow-hidden">
+              <iframe
+                src={selected.file}
+                title={selected.title}
+                className="w-full h-full"
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>
