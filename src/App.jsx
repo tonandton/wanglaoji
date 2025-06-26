@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
 import AboutPage from "./components/AboutPage";
@@ -6,6 +7,7 @@ import ExtraSlideSection from "./components/ExtraSlideSection";
 import ContactPage from "./components/ContactPage";
 import Gallery from "./components/Gallery";
 import LineIcon from "./components/LineIcon";
+import TrademarkPage from "./components/TrademarkPage";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -25,15 +27,27 @@ function App() {
   }, []);
 
   return (
-    <div className="font-kanit">
-      <Header />
-      <LandingPage />
-      <ExtraSlideSection />
-      <Gallery />
-      <AboutPage />
-      <LineIcon />
-      <ContactPage />
-    </div>
+    <Router>
+      <div className="font-kanit">
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <LandingPage />
+                <ExtraSlideSection />
+                <Gallery />
+                <AboutPage />
+                <LineIcon />
+                <ContactPage />
+              </>
+            }
+          />
+          <Route path="/trademark" element={<TrademarkPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

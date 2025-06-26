@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const headerRef = useRef(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -19,6 +21,26 @@ const Header = () => {
       setTimeout(() => {
         document.documentElement.scrollTop = 0;
       }, 400);
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollOrNavigate = (id) => {
+    if (id === "trademark") {
+      navigate("/trademark");
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate("/"); // เผื่อผู้ใช้เปิดจากหน้าที่ไม่ใช่หน้าแรก
+        setTimeout(() => {
+          const target = document.getElementById(id);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 500);
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -49,6 +71,7 @@ const Header = () => {
                 e.preventDefault();
                 const el = document.getElementById(item.id);
                 if (el) el.scrollIntoView({ behavior: "smooth" });
+                scrollOrNavigate(item.id);
               }}
               className="hover:text-red-600 text-gray-700 transition-colors duration-300"
             >
