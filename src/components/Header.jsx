@@ -107,7 +107,7 @@ const Header = () => {
                 e.preventDefault();
                 const el = document.getElementById(item.id);
                 if (el) el.scrollIntoView({ behavior: "smooth" });
-                setIsMobileMenuOpen(false);
+                scrollOrNavigate(item.id);
               }}
               className="block text-base py-2 text-gray-800 hover:text-red-600 transition-colors duration-300"
             >

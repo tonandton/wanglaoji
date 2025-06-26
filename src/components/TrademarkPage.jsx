@@ -77,7 +77,7 @@ const TrademarkPage = () => {
           <h3 className="text-xl font-semibold mb-4 text-gray-800">
             📄 {selected.title}
           </h3>
-          <div className="w-full h-[500px] border rounded-lg overflow-hidden">
+          <div className="w-full h-[900px] border rounded-lg overflow-hidden">
             <iframe
               src={selected.file}
               title={selected.title}
