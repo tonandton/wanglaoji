@@ -5,33 +5,67 @@ import { useNavigate, useLocation } from "react-router-dom";
 const sections = ["home", "about", "trademark", "contact"];
 
 const Header = () => {
-  const headerRef = useRef(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Detect section on scroll (เฉพาะหน้า Landing)
+  // useEffect(() => {
+  //   if (location.pathname !== "/") return;
+
+  //   const handleScroll = () => {
+  //     const scrollY = window.scrollY;
+  //     const windowHeight = window.innerHeight;
+
+  //     let current = "home";
+  //     for (const id of sections) {
+  //       const el = document.getElementById(id);
+  //       if (el) {
+  //         const elTop = el.offsetTop;
+  //         const elHeight = el.offsetHeight;
+
+  //         // ถ้า scrollY อยู่ในช่วงของ section
+  //         if (
+  //           scrollY >= elTop - 120 &&
+  //           scrollY < elTop + elHeight - windowHeight / 4
+  //         ) {
+  //           current = id;
+  //         }
+  //       }
+  //     }
+  //     setActiveSection(current);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   handleScroll();
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [location.pathname]);
+
   useEffect(() => {
-    if (location.pathname !== "/") return;
-
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-
       let current = "home";
+
       for (const id of sections) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop - 120 <= scrollY) {
-          current = id;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const top = rect.top;
+          const height = rect.height;
+
+          // ถ้าส่วนบนของ section อยู่ในหน้าจออย่างน้อย 20%
+          if (top <= window.innerHeight * 0.3 && top + height > 0) {
+            current = id;
+          }
         }
       }
+
       setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // เรียกครั้งแรก
+    handleScroll(); // run on load
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
+  }, []);
 
   const scrollOrNavigate = (id) => {
     if (id === "trademark") {
@@ -83,7 +117,9 @@ const Header = () => {
                 ? "เกี่ยวกับ"
                 : id === "trademark"
                 ? "เครื่องหมายการค้า"
-                : "ติดต่อเรา"}
+                : id === "contact"
+                ? "ติดต่อเรา"
+                : ""}
             </button>
           ))}
         </nav>
@@ -118,7 +154,9 @@ const Header = () => {
                 ? "เกี่ยวกับ"
                 : id === "trademark"
                 ? "เครื่องหมายการค้า"
-                : "ติดต่อเรา"}
+                : id === "contact"
+                ? "ติดต่อเรา"
+                : ""}
             </button>
           ))}
         </div>
