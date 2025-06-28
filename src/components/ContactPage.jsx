@@ -18,27 +18,38 @@ const ContactPage = () => (
         <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-red-100">
           <FiPhone className="text-4xl text-red-600 mb-4 mx-auto" />
           <h3 className="text-xl font-semibold text-gray-800 mb-2">โทร</h3>
-          <p className="text-lg text-gray-600">086-358-9179</p>
+          <a
+            href="tel:0863589179"
+            className="text-red-600 text-xl hover:underline"
+          >
+            086-358-9179
+          </a>
         </div>
 
         {/* อีเมล */}
         <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-red-100">
           <FiMail className="text-4xl text-red-600 mb-4 mx-auto" />
           <h3 className="text-xl font-semibold text-gray-800 mb-2">อีเมล</h3>
-          <p className="text-lg text-gray-600 break-all">
+          <a
+            href="mailto:Cherdchai179@gmail.com"
+            className="text-red-600 text-lg hover:underline break-all"
+          >
             Cherdchai179@gmail.com
-          </p>
+          </a>
         </div>
 
         {/* ที่อยู่ */}
         <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-red-100">
           <FiMapPin className="text-4xl text-red-600 mb-4 mx-auto" />
           <h3 className="text-xl font-semibold text-gray-800 mb-2">ที่อยู่</h3>
-          <p className="text-lg text-gray-600">
-            <span>แขวงบางจาก เขตภาษีเจริญ</span>
-            <br />
-            <span>กรุงเทพมหานคร 10160</span>
-          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=กรุงเทพมหานคร+ประเทศไทย"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-red-600 text-lg hover:underline"
+          >
+            กรุงเทพมหานคร ประเทศไทย
+          </a>
         </div>
       </div>
 

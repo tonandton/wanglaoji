@@ -6,6 +6,7 @@ import AboutPage from "./components/AboutPage";
 import ExtraSlideSection from "./components/ExtraSlideSection";
 import ContactPage from "./components/ContactPage";
 import Gallery from "./components/Gallery";
+import PhoneIcon from "./components/PhoneIcon";
 import LineIcon from "./components/LineIcon";
 import TrademarkPage from "./components/TrademarkPage";
 import AOS from "aos";
@@ -39,6 +40,7 @@ function App() {
                 <ExtraSlideSection />
                 <Gallery />
                 <AboutPage />
+                <PhoneIcon />
                 <LineIcon />
                 <ContactPage />
               </>

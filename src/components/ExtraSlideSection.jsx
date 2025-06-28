@@ -1,9 +1,13 @@
 // ExtraSlideSection.jsx
 import React, { useEffect } from "react";
 import ImageSlider from "./ImageSlider";
-import { FaLeaf, FaGlassCheers, FaHeartbeat } from "react-icons/fa";
+import { FaStore } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaTruckPlane } from "react-icons/fa6";
+import { PiPlantBold } from "react-icons/pi";
+import { GiCupcake, GiHeartPlus, GiHerbsBundle } from "react-icons/gi";
+import { MdGavel } from "react-icons/md";
 
 const ExtraSlideSection = () => {
   useEffect(() => {
@@ -48,22 +52,39 @@ const ExtraSlideSection = () => {
               เครื่องดื่มสมุนไพรระดับตำนาน ที่ถ่ายทอดภูมิปัญญาจีนโบราณ
               ผสมผสานเข้ากับความทันสมัย
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-gray-800">
               <li className="flex items-start gap-3">
-                <FaLeaf className="text-green-600 mt-1" />
+                <PiPlantBold className="text-green-700 mt-1 text-xl" />
                 <span>
                   คัดสรรสมุนไพรธรรมชาติ 100% เพื่อสุขภาพที่ดีในทุกช่วงวัย
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <FaGlassCheers className="text-red-400 mt-1" />
-                <span>รสชาติกลมกล่อม สดชื่น เหมาะกับทุกโอกาส</span>
+                <GiHerbsBundle className="text-green-600 mt-1 text-xl" />
+                <span>สูตรเข้มข้น ต้นตำรับแท้จากแพทย์สมุนไพรจีน</span>
               </li>
               <li className="flex items-start gap-3">
-                <FaHeartbeat className="text-pink-600 mt-1" />
+                <GiCupcake className="text-red-400 mt-1 text-xl" />
+                <span>รสชาติกลมกล่อม สดชื่น ดื่มง่าย เหมาะกับทุกโอกาส</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <GiHeartPlus className="text-pink-500 mt-1 text-xl" />
                 <span>เสริมภูมิต้านทาน ปรับสมดุลร่างกายจากภายใน</span>
               </li>
+              <li className="flex items-start gap-3">
+                <FaStore className="text-yellow-500 mt-1 text-xl" />
+                <span>ส่งตรงจากแหล่งผลิตโดยไม่ผ่านพ่อค้าคนกลาง</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MdGavel className="text-blue-500 mt-1 text-xl" />
+                <span>ได้รับการรับรองตามมาตรฐานสากล</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <FaTruckPlane className="text-red-600 mt-1 text-xl" />
+                <span>จัดส่งทั่วประเทศอย่างรวดเร็วและปลอดภัย</span>
+              </li>
             </ul>
+
             <p>
               ทุกกระป๋อง คือความตั้งใจที่จะมอบประสบการณ์ “ความสดชื่นที่มีคุณค่า”
               จากธรรมชาติอย่างแท้จริง

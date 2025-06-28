@@ -87,6 +87,11 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+        <img
+          src="/src/assets/images/434433.jpg"
+          alt="timeline"
+          className="rounded-3xl"
+        />
       </div>
     </section>
   );
