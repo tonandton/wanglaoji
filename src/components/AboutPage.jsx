@@ -94,9 +94,9 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center" data-aos="fade-up">
+        <div className="flex justify-center mb-4" data-aos="fade-up">
           <p>
-            <strong className="text-red-600">GROUP PROFILE</strong>{" "}
+            <strong className="text-red-600 text-2xl">GROUP PROFILE</strong>{" "}
           </p>
         </div>
         <div className="flex justify-center" data-aos="fade-up">
