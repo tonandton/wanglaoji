@@ -67,7 +67,7 @@ const Gallery = () => {
   useEffect(() => {
     if (galleryRef.current) {
       galleryRef.current.scrollTo({ left: scrollPosition, behavior: "smooth" });
-      const itemWidth = 192; // ปรับตามขนาด .w-48
+      const itemWidth = 384; // max-w-md
       const index = Math.round(scrollPosition / itemWidth);
       setActiveIndex(index);
     }
@@ -128,7 +128,7 @@ const Gallery = () => {
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   i === activeIndex ? "bg-red-600 scale-125" : "bg-gray-400"
                 }`}
-                onClick={() => setScrollPosition(i * 192)}
+                onClick={() => setScrollPosition(i * 384)}
                 aria-label={`Slide ${i + 1}`}
               />
             ))}
@@ -142,23 +142,11 @@ const Gallery = () => {
           className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4"
           onClick={closeModal} // ✅ คลิกที่พื้นหลัง modal เพื่อปิด
         >
-          <div
-            className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()} // ✅ ไม่ปิด modal เมื่อคลิกรูป
-          >
-            {/* <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 bg-white text-black p-2 rounded-full hover:bg-red-600 hover:text-white transition shadow-lg"
-              aria-label="Close modal"
-            >
-              ✕
-            </button> */}
-            <img
-              src={modalImage}
-              alt="Enlarged"
-              className="w-full max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
-            />
-          </div>
+          <img
+            src={modalImage}
+            alt="Enlarged"
+            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl cursor-pointer"
+          />
         </div>
       )}
     </section>
