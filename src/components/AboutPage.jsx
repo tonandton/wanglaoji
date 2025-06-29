@@ -91,6 +91,7 @@ const AboutPage = () => {
           src="/src/assets/images/434433.jpg"
           alt="timeline"
           className="rounded-3xl"
+          data-aos="fade-up"
         />
       </div>
     </section>
