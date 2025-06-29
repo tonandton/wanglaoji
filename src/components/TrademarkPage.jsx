@@ -24,6 +24,11 @@ const pdfFiles = [
     title: "สัญญาน้ำหวังเหล่าจี๋-BT-boriboon",
     file: "/docs/04-สัญญาน้ำหวังเหล่าจี๋-BT-boriboon.pdf",
   },
+  {
+    title: "ประกาศเตือน",
+    file: "/docs/05-ประกาศเตือน.jpg",
+    className: "w-1",
+  },
 ];
 
 const TrademarkPage = () => {

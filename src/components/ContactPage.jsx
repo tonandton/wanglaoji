@@ -43,12 +43,13 @@ const ContactPage = () => (
           <FiMapPin className="text-4xl text-red-600 mb-4 mx-auto" />
           <h3 className="text-xl font-semibold text-gray-800 mb-2">ที่อยู่</h3>
           <a
-            href="https://www.google.com/maps/search/?api=1&query=กรุงเทพมหานคร+ประเทศไทย"
+            href="https://maps.app.goo.gl/A8DVps82DvuYCdWf7"
             target="_blank"
             rel="noopener noreferrer"
             className="text-red-600 text-lg hover:underline"
           >
-            กรุงเทพมหานคร ประเทศไทย
+            1/179 ซอยพุทธบูชา36 ถนนพุทธบูชา แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร
+            10140
           </a>
         </div>
       </div>

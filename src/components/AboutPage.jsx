@@ -3,6 +3,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const AboutPage = () => {
+  const aboutImages = import.meta.glob("/src/assets/images/image_about/*.jpg", {
+    eager: true,
+  });
+  const aboutImageList = Object.values(aboutImages).map((mod) =>
+    typeof mod === "object" && mod.default ? mod.default : mod
+  );
+  const imageBottom = aboutImageList[0]; // เลือกรูปแรก
+
   useEffect(() => {
     AOS.init({ once: true, duration: 800 });
   }, []);
@@ -19,7 +27,6 @@ const AboutPage = () => {
         >
           เกี่ยวกับเรา
         </h2>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start text-gray-800">
           {/* คอลัมน์ซ้าย */}
           <div
@@ -87,8 +94,35 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+        <div className="flex justify-center" data-aos="fade-up">
+          <p>
+            <strong className="text-red-600">GROUP PROFILE</strong>{" "}
+          </p>
+        </div>
+        <div className="flex justify-center" data-aos="fade-up">
+          <p>
+            ก่อตั้งขึ้นในปี ค.ศ. 1995 กลุ่มบริษัท JOB Group
+            เป็นองค์กรขนาดใหญ่ที่ดำเนินธุรกิจครบวงจรตั้งแต่ การเพาะปลูกวัตถุดิบ
+            การผลิต ไปจนถึงการจำหน่ายเครื่องดื่ม
+            โดยมีสำนักงานใหญ่ตั้งอยู่ที่กรุงปักกิ่ง ผลิตภัณฑ์ของ JDB Group
+            ถูกจำหน่ายไปใน 80 กว่าประเทศทั่วโลก และมียอดขายสะสมถถึง 28
+            พันล้านดอลลาร์สหรัฐ ผลิตภัณฑ์ของเรา ประกอบไปด้วย ชาจับเลี้ยง "Wang
+            Lao Ji" ในรูปแบบกระป๋อง ในช่วงกว่า 20 ปีที่ผ่านมา
+            นับตั้งแต่ก่อตั้งกลุ่มบริษัท JDB Group
+            ได้สร้างแบรนด์เครื่องดื่มชื่อดังของจีน 3 แบรนด์ ได้แก่
+            "หวังเหล่าจี๋" (Wong Lo Ji), "เจี่ยวตัวเป่า" (Lia Duo Bao), และ
+            "คุณหลุน เมาน์เทน" (Kunlun Mountains)
+          </p>
+        </div>
+        <div className="flex justify-center mt-5 mb-8" data-aos="fade-up">
+          <p>
+            ต่อมา วันที่ 15 เมษายน ปี ค.ศ 2024 ห้างหุ้นส่วนจำกัด บริบูรณ์
+            เทรดดิ้ง
+            ได้รับความไว้วางใจให้เป็นผู้นำเข้าและผู้จัดจำหน่ายแต่เเพียงผู้เดียวในประเทศไทย
+          </p>
+        </div>
         <img
-          src="/src/assets/images/434433.jpg"
+          src={imageBottom}
           alt="timeline"
           className="rounded-3xl"
           data-aos="fade-up"
