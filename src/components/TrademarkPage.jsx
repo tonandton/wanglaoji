@@ -27,7 +27,6 @@ const pdfFiles = [
   {
     title: "ประกาศเตือน",
     file: "/docs/05-ประกาศเตือน.jpg",
-    className: "w-1",
   },
 ];
 
