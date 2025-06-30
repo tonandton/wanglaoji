@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import GalleryAbout from "./GalleryAbout";
 
 const AboutPage = () => {
   const aboutImages = import.meta.glob("/src/assets/images/image_about/*.jpg", {
@@ -9,7 +10,8 @@ const AboutPage = () => {
   const aboutImageList = Object.values(aboutImages).map((mod) =>
     typeof mod === "object" && mod.default ? mod.default : mod
   );
-  const imageBottom = aboutImageList[0]; // เลือกรูปแรก
+  const imageTimeline = aboutImageList[0]; // เลือกรูปแรก
+  const imageTradmark = aboutImageList[1]; // เลือกรูปแรก
 
   useEffect(() => {
     AOS.init({ once: true, duration: 800 });
@@ -121,11 +123,10 @@ const AboutPage = () => {
             ได้รับความไว้วางใจให้เป็นผู้นำเข้าและผู้จัดจำหน่ายแต่เเพียงผู้เดียวในประเทศไทย
           </p>
         </div>
-        <img
-          src={imageBottom}
-          alt="timeline"
-          className="rounded-3xl"
-          data-aos="fade-up"
+
+        <GalleryAbout
+          imageTimeline={imageTimeline}
+          imageTradmark={imageTradmark}
         />
       </div>
     </section>

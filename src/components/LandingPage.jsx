@@ -5,6 +5,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const imageModules = import.meta.glob("/src/assets/images/image_header/*.png", {
   eager: true,
@@ -20,10 +21,7 @@ const scrollToSection = (id) => {
 };
 
 const LandingPage = () => (
-  <section
-    id="home"
-    className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-100 via-orange-50 to-yellow-100 overflow-hidden  mt-5"
-  >
+  <>
     <Helmet>
       <title>หวังเหล่าจี๋ - เครื่องดื่มสมุนไพรแท้จากจีน | Chaiyo Trading</title>
       <meta
@@ -47,6 +45,27 @@ const LandingPage = () => (
       <meta property="og:site_name" content="Chaiyo Trading" />
       <meta http-equiv="Content-Language" content="th" />
 
+      <script type="application/ld+json">
+        {`
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "หวังเหล่าจี๋",
+      "image": "https://chaiyo-trading.com/images/wanglaoji.jpg",
+      "description": "เครื่องดื่มสมุนไพรแท้จากจีน หวังเหล่าจี๋ ช่วยบำรุงร่างกายและเสริมภูมิคุ้มกัน",
+      "brand": {
+        "@type": "Brand",
+        "name": "Chaiyo Trading"
+      }
+    }
+    `}
+      </script>
+    </Helmet>
+
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-100 via-orange-50 to-yellow-100 overflow-hidden  mt-5"
+    >
       {/* วงกลมเบลอสร้างมิติ */}
       <div className="absolute top-[-5%] left-[-10%] w-[300px] h-[300px] bg-red-300 opacity-30 blur-3xl rounded-full animate-pulse" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-orange-200 opacity-20 blur-2xl rounded-full animate-pulse-slow" />
@@ -59,13 +78,18 @@ const LandingPage = () => (
               <h1 className="text-5xl md:text-6xl font-extrabold text-red-700 drop-shadow-[2px_4px_3px_rgba(0,0,0,0.2)] animate-fadeInUp">
                 หวังเหล่าจี๋
               </h1>
+              <p className="text-xl text-gray-700 leading-relaxed max-w-xl mx-auto md:mx-0 animate-fadeIn delay-200 mt-2 mb-4">
+                เครื่องดื่มสมุนไพรระดับตำนานที่มีต้นกำเนิดจากปี 1828 ในประเทศจีน
+                ผสานศาสตร์แห่งธรรมชาติและภูมิปัญญาแผนโบราณ
+                เพื่อดูแลร่างกายจากภายในสู่ภายนอก
+              </p>
               <Swiper
                 modules={[Pagination, Autoplay]}
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 3500, disableOnInteraction: false }}
                 spaceBetween={30}
                 slidesPerView={1}
-                className="w-full max-w-xl mx-auto"
+                className="w-full max-w-xl mx-auto mb-2"
               >
                 <SwiperSlide>
                   <div className="min-h-[200px] flex items-center justify-center">
@@ -126,7 +150,7 @@ const LandingPage = () => (
             <div className="relative group w-full max-w-md md:max-w-lg aspect-[3/4]  backdrop-blur-xl overflow-hidden transition-transform hover:scale-105 hover:rotate-[-1.5deg] duration-500">
               <img
                 src={headerImage}
-                alt="หวังเหล่าจี๋"
+                alt="หวังเหล่าจี๋ เครื่องดื่มสมุนไพรแท้จากจีน"
                 className="w-full h-full object-contain z-10 relative"
               />
               {/* แสงสะท้อนเทียม */}
@@ -135,8 +159,8 @@ const LandingPage = () => (
           </div>
         </div>
       </div>
-    </Helmet>
-  </section>
+    </section>
+  </>
 );
 
 export default LandingPage;
