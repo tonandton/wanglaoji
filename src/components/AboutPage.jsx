@@ -20,7 +20,7 @@ const AboutPage = () => {
   return (
     <section
       id="about"
-      className="relative py-20 bg-gradient-to-b from-white via-white/90 to-gray-50 bg-fixed bg-center bg-cover"
+      className="relative py-20 mt-16 bg-gradient-to-b from-white via-white/90 to-gray-50 bg-fixed bg-center bg-cover"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <h2

@@ -11,6 +11,7 @@ import LineIcon from "./components/LineIcon";
 import TrademarkPage from "./components/TrademarkPage";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "./components/Footer";
 
 function App() {
   useEffect(() => {
@@ -39,15 +40,37 @@ function App() {
                 <LandingPage />
                 <ExtraSlideSection />
                 <Gallery />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
                 <AboutPage />
-                <PhoneIcon />
-                <LineIcon />
+              </>
+            }
+          />
+          <Route
+            path="/trademark"
+            element={
+              <>
+                <TrademarkPage />
+              </>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <>
                 <ContactPage />
               </>
             }
           />
-          <Route path="/trademark" element={<TrademarkPage />} />
         </Routes>
+        <PhoneIcon />
+        <LineIcon />
+        <Footer />
       </div>
     </Router>
   );

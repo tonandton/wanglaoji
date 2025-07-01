@@ -1,3 +1,4 @@
+import { nav } from "framer-motion/client";
 import React, { useRef, useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -9,37 +10,6 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
-
-  // useEffect(() => {
-  //   if (location.pathname !== "/") return;
-
-  //   const handleScroll = () => {
-  //     const scrollY = window.scrollY;
-  //     const windowHeight = window.innerHeight;
-
-  //     let current = "home";
-  //     for (const id of sections) {
-  //       const el = document.getElementById(id);
-  //       if (el) {
-  //         const elTop = el.offsetTop;
-  //         const elHeight = el.offsetHeight;
-
-  //         // ถ้า scrollY อยู่ในช่วงของ section
-  //         if (
-  //           scrollY >= elTop - 120 &&
-  //           scrollY < elTop + elHeight - windowHeight / 4
-  //         ) {
-  //           current = id;
-  //         }
-  //       }
-  //     }
-  //     setActiveSection(current);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   handleScroll();
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,19 +38,30 @@ const Header = () => {
   }, []);
 
   const scrollOrNavigate = (id) => {
-    if (id === "trademark") {
-      navigate("/trademark");
-    } else {
-      if (location.pathname !== "/") {
-        navigate("/");
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 500);
-      } else {
+    if (id === "home") {
+      navigate("/");
+      setTimeout(() => {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: "smooth" });
-      }
+      }, 500);
+    } else if (id === "about") {
+      navigate("/about");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    } else if (id === "trademark") {
+      navigate("/trademark");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    } else if (id === "contact") {
+      navigate("/contact");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 500);
     }
     setIsMobileMenuOpen(false);
   };
@@ -114,7 +95,7 @@ const Header = () => {
               {id === "home"
                 ? "หน้าแรก"
                 : id === "about"
-                ? "เกี่ยวกับ"
+                ? "เกี่ยวกับเรา"
                 : id === "trademark"
                 ? "เครื่องหมายการค้า"
                 : id === "contact"

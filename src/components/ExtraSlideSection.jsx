@@ -1,7 +1,7 @@
 // ExtraSlideSection.jsx
 import React, { useEffect } from "react";
 import ImageSlider from "./ImageSlider";
-import { FaStore } from "react-icons/fa";
+import { FaCertificate, FaStore } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaTruckPlane } from "react-icons/fa6";
@@ -73,11 +73,15 @@ const ExtraSlideSection = () => {
               </li>
               <li className="flex items-start gap-3">
                 <FaStore className="text-yellow-500 mt-1 text-xl" />
-                <span>ส่งตรงจากแหล่งผลิตโดยไม่ผ่านพ่อค้าคนกลาง</span>
+                <span>ส่งตรงจากแหล่งผลิต</span>
               </li>
               <li className="flex items-start gap-3">
                 <MdGavel className="text-blue-500 mt-1 text-xl" />
                 <span>ได้รับการรับรองตามมาตรฐานสากล</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <FaCertificate className="text-green-500 mt-1 text-xl" />
+                <span>มีเลขทะเบียน อย. และได้รับเครื่องหมายฮาลาล</span>
               </li>
               <li className="flex items-start gap-3">
                 <FaTruckPlane className="text-red-600 mt-1 text-xl" />

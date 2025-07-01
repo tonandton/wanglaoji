@@ -64,7 +64,7 @@ const LandingPage = () => (
 
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-100 via-orange-50 to-yellow-100 overflow-hidden  mt-5"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-100 via-orange-50 to-yellow-100 overflow-hidden mt-5"
     >
       {/* วงกลมเบลอสร้างมิติ */}
       <div className="absolute top-[-5%] left-[-10%] w-[300px] h-[300px] bg-red-300 opacity-30 blur-3xl rounded-full animate-pulse" />

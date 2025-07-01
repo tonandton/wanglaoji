@@ -36,10 +36,10 @@ const TrademarkPage = () => {
   return (
     <section
       id="trademark"
-      className="min-h-screen py-20 bg-gradient-to-b from-yellow-50 via-red-50 to-white font-thai"
+      className="py-20 mt-16 bg-gradient-to-b from-yellow-50 via-red-50 to-white font-thai"
     >
-      <div className="max-w-6xl mx-auto px-4 space-y-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-red-800 drop-shadow-md">
+      <div className="max-w-6xl mx-auto px-4 mt-5 space-y-12">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-red-600 drop-shadow-md">
           เอกสารเครื่องหมายการค้า
         </h2>
 
