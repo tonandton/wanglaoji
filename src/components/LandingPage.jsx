@@ -66,14 +66,13 @@ const LandingPage = () => (
       id="home"
       className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-100 via-orange-50 to-yellow-100 overflow-hidden mt-5"
     >
-      {/* วงกลมเบลอสร้างมิติ */}
       <div className="absolute top-[-5%] left-[-10%] w-[300px] h-[300px] bg-red-300 opacity-30 blur-3xl rounded-full animate-pulse" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-orange-200 opacity-20 blur-2xl rounded-full animate-pulse-slow" />
 
       <div className="relative z-10 container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
           {/* ฝั่งซ้าย: ข้อความ */}
-          <div className="space-y-6 text-center" data-aos="fade-right">
+          <div className="space-y-6 text-center">
             <div className="w-full max-w-xl mx-auto md:mx-0 space-y-6">
               <h1 className="text-5xl md:text-6xl font-extrabold text-red-700 drop-shadow-[2px_4px_3px_rgba(0,0,0,0.2)] animate-fadeInUp">
                 หวังเหล่าจี๋

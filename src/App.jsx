@@ -13,6 +13,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "./components/Footer";
 import ProductIngredients from "./components/ProductIngredients";
+import DealerSection from "./components/DealerSection";
 
 function App() {
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
                 <ExtraSlideSection />
                 <Gallery />
                 <ProductIngredients />
+                <DealerSection />
               </>
             }
           />

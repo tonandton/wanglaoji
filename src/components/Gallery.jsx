@@ -76,7 +76,10 @@ const Gallery = () => {
   return (
     <section className="relative py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 className="text-center text-4xl font-bold text-red-600 mb-12">
+        <h2
+          className="text-center text-4xl font-bold text-red-600 mb-12 fade-up"
+          data-aos="fade-up"
+        >
           รูปภาพสินค้า
         </h2>
 
@@ -115,6 +118,9 @@ const Gallery = () => {
                   src={img}
                   alt={`gallery-${index}`}
                   className="w-full h-full object-contain bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
+                  data-aos="flip-left"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="1000"
                 />
               </div>
             ))}
