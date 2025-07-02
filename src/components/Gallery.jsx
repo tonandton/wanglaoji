@@ -119,6 +119,9 @@ const Gallery = () => {
               </div>
             ))}
           </div>
+          <p className="text-sm text-center text-gray-500 mt-2">
+            (คลิกเพื่อขยายภาพ)
+          </p>
 
           {/* จุดบอกตำแหน่ง */}
           <div className="mt-6 flex justify-center space-x-2">

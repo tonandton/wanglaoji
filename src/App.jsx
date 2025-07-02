@@ -12,6 +12,7 @@ import TrademarkPage from "./components/TrademarkPage";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "./components/Footer";
+import ProductIngredients from "./components/ProductIngredients";
 
 function App() {
   useEffect(() => {
@@ -40,6 +41,7 @@ function App() {
                 <LandingPage />
                 <ExtraSlideSection />
                 <Gallery />
+                <ProductIngredients />
               </>
             }
           />
