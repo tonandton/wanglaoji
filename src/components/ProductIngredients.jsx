@@ -69,10 +69,10 @@ const ProductIngredients = () => {
               autoplay={{ delay: 3500, disableOnInteraction: false }}
               spaceBetween={30}
               slidesPerView={1}
-              className="w-full max-w-xl mx-auto mb-2"
+              className="w-full max-w-xl mx-auto mb-6"
             >
               <SwiperSlide>
-                <div className="min-h-[200px] flex items-center justify-center">
+                <div className="min-h-[200px] flex items-center justify-center pb-14">
                   <p className="text-md md:text-lg text-gray-700 leading-relaxed">
                     Wang Lao Ji Herbal Drinks ถูกเตรียมตามสูตรดั้งเดิม
                     โดยใช้สมุนไพรธรรมชาติที่ประกอบด้วย "ดอกไม้สามชนิด
@@ -83,7 +83,7 @@ const ProductIngredients = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="min-h-[200px] flex items-center justify-center">
+                <div className="min-h-[200px] flex items-center justify-center mb-2">
                   <p className="text-md md:text-lg text-gray-700 leading-relaxed">
                     "หวังเหล่าจี๋"
                     เป็นเครื่องดื่มสมุนไพรที่มีสรรพคุณช่วยแก้ร้อนใน คลายร้อน
