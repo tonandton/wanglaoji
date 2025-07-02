@@ -74,58 +74,58 @@ const Gallery = () => {
   }, [scrollPosition]);
 
   return (
-    <section className="relative py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-center text-4xl font-bold text-red-600 mb-10">
-          รูปภาพจากงานแสดงสินค้า
+    <section className="relative py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 className="text-center text-4xl font-bold text-red-600 mb-12">
+          รูปภาพสินค้า
         </h2>
 
         <div className="relative">
-          {/* Left Button */}
+          {/* ปุ่มซ้าย */}
           <button
             onClick={handleScrollLeft}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-red-600/80 text-white p-4 rounded-full shadow-lg hover:bg-red-700 active:bg-red-800 transition z-10"
+            className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 bg-red-600/80 hover:bg-red-700 text-white p-3 rounded-full shadow-md transition z-20"
             aria-label="Scroll Left"
           >
             ❮
           </button>
 
-          {/* Right Button */}
+          {/* ปุ่มขวา */}
           <button
             onClick={handleScrollRight}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-red-600/80 text-white p-4 rounded-full shadow-lg hover:bg-red-700 active:bg-red-800 transition z-10"
+            className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-red-600/80 hover:bg-red-700 text-white p-3 rounded-full shadow-md transition z-20"
             aria-label="Scroll Right"
           >
             ❯
           </button>
 
-          {/* Gallery */}
+          {/* แกลเลอรี่ */}
           <div
             ref={galleryRef}
-            className="flex overflow-x-auto scrollbar-hide scroll-smooth space-x-6 px-16"
+            className="flex overflow-x-auto scrollbar-hide scroll-smooth space-x-4 px-2 sm:px-4 py-8"
             style={{ scrollSnapType: "x mandatory" }}
           >
             {images.map((img, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-full max-w-md h-[320px] scroll-snap-align-start relative cursor-pointer"
+                className="flex-shrink-0 w-[360px] h-[260px] scroll-snap-align-start relative cursor-pointer"
                 onClick={() => openModal(img)}
               >
                 <img
                   src={img}
                   alt={`gallery-${index}`}
-                  className="w-full h-full object-cover rounded-lg shadow-xl hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
                 />
               </div>
             ))}
           </div>
 
-          {/* 🔵 Dot Indicators */}
+          {/* จุดบอกตำแหน่ง */}
           <div className="mt-6 flex justify-center space-x-2">
             {images.map((_, i) => (
               <button
                 key={i}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
                   i === activeIndex ? "bg-red-600 scale-125" : "bg-gray-400"
                 }`}
                 onClick={() => setScrollPosition(i * 384)}
@@ -136,11 +136,11 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal แสดงภาพเต็ม */}
       {modalImage && (
         <div
           className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4"
-          onClick={closeModal} // ✅ คลิกที่พื้นหลัง modal เพื่อปิด
+          onClick={closeModal}
         >
           <img
             src={modalImage}

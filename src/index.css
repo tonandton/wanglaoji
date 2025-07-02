@@ -54,11 +54,11 @@ html, body {
 }
 
 /* Gallery Styles */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
+/* ปิด scrollbar ในทุก browser */
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

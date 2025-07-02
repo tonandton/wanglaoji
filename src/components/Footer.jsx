@@ -1,15 +1,14 @@
-// src/components/Footer.jsx
 import React from "react";
 import { FiFacebook, FiInstagram, FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-red-700 text-white py-10 mt-1">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+    <footer className="bg-red-700 text-white py-10 px-16">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-y-4 md:gap-y-0 text-center">
         {/* Left */}
-        <div className="text-center md:text-left ml-16">
+        <div>
           <h3 className="text-xl font-bold">หวังเหล่าจี๋</h3>
-          <p className="text-sm text-red-100 mt-1"></p>
+          {/* <p className="text-sm text-red-100 mt-1">น้ำดื่มสมุนไพรจับเลี้ยง</p> */}
         </div>
 
         {/* Center - Social */}
@@ -39,7 +38,7 @@ const Footer = () => {
         </div>
 
         {/* Right - Copyright */}
-        <div className="text-sm text-red-100 text-center md:text-right mr-16">
+        <div className="text-sm text-red-100">
           &copy; {new Date().getFullYear()} CHAIYO TRADING
         </div>
       </div>
