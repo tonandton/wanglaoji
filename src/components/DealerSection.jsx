@@ -45,8 +45,8 @@ const DealerSection = () => {
           <ul className="list-disc list-inside text-base space-y-2 text-gray-700">
             <li>
               ได้ราคาดีลเลอร์{" "}
-              <strong className="text-red-600">19 บาท/กระป๋อง</strong> (ขั้นต่ำ
-              300 ลังขึ้นไป)
+              <strong className="underline">ราคาต้นทุนของบริษัท</strong>{" "}
+              (ขั้นต่ำ 300 ลังขึ้นไป)
             </li>
             <li>มีหนังสือแต่งตั้งการเป็นตัวแทนจำหน่าย (Dealer) ประจำพื้นที่</li>
             <li>
